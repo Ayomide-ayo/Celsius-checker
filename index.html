@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            background-image: url(https://img.quarktwin.com/manage/2023/05/09/ca188149a3454d86806dbd2eda20032d.png-webp);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(0, 0, 0, 0.5);
+            background-blend-mode: overlay;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cent{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: transparent;
+            width: 50%;
+            height:70vh;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .cel{
+            font-size: 50px;
+            color: white;
+            margin-top: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .inn{
+            padding: 8px;
+            border: 1px solid white;
+            border-radius: 4px;
+            outline: none;
+            width: 20%;
+            margin-top: 20px;
+            font-size: 25px;
+            text-align: center;
+        }
+        button{
+            background-color: green;
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 6px;
+            color: white;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #display{
+            width: 300px;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+            color: black;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px; 
+            background-color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="cent">
+                <div>
+                    <p class="cel">Celsius Converter</p>
+                </div>
+                <input type="number" id="celsius" class="inn">
+                <button onclick="checkCel()">Check celsius</button>
+                <div id="display"></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    let celsius = document.getElementById('celsius')
+    let displayCel = document.getElementById('display')
+
+    function checkCel(celsiusInp) {
+        
+         let celsiusOut = celsius.value
+         displayCel.innerHTML = celsiusOut
+
+        //  displayCel.innerHTML = celsiusInp.value
+
+        if (celsiusOut === "") {
+            alert('Please input a value');
+            
+        } else {
+            let fahrenheit = convertCelsiusToFahrenheit(celsiusOut).toFixed()
+          
+            if (celsiusOut) {
+                displayCel.innerHTML = `${celsiusOut}oC has been converted to ${fahrenheit}oF`
+              
+            } else {
+                displayCel.innerHTML = 'Layo your rubbish did not work'
+            }
+        }
+        
+    }
+    function convertCelsiusToFahrenheit(celsiusOut) {
+        return fahrenheit = (celsiusOut * 9/5) + 32
+    }
+
+</script>
+
+<!-- // Temperature in oC can be converted to oF using this formula: oF = (oC x 9/5) + 32. Write a function which convert oC to oF convertCelsiusToFahrenheit. -->
